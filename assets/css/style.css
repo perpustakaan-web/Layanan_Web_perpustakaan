@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: #428bca !important; /* Warna biru untuk background menu */
+  }
+}
