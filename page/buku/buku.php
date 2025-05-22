@@ -1,4 +1,4 @@
-<a href="" class="btn btn-primary" style="margin-bottom: 5px">Tambah Data</a>
+<a href="?page=buku&aksi=tambah" class="btn btn-primary" style="margin-bottom: 5px">Tambah Data</a>
 <div class="row">
     <div class="col-md-12">
         <!-- Advanced Tables -->
@@ -21,19 +21,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
 
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <a href="" class="btn btn-info"><i class="fa fa-edit"></i>Ubah</a>
-                                    <a onclick="" href="" class="btn btn-danger"><i class="fa fa-trash"></i>Hapus</a>
-                                </td>
-                            </tr>
+                        <?php
+                                            $no =1;
+                                            $sql = $koneksi->query("select * from buku");
+
+                                            while ($data=$sql->fetch_assoc()) {
+                                        ?>
+
+                                            
+                                        <tr>
+
+                                            <td><?php echo $no++;?></td>
+                                            <td><?php echo $data['judul'];?></td>
+                                            <td><?php echo $data['pengarang'];?></td>
+                                            <td><?php echo $data['penerbit'];?></td>
+                                            <td><?php echo $data['isbn'];?></td>
+                                            <td><?php echo $data['jumlah_buku'];?></td>
+                                            <td>
+                                                <a href="?page=buku&aksi=ubah&id=<?php echo $data['id']; ?>" class="btn btn-info" ><i class="fa fa-edit"></i>Ubah</a>
+                                                <a onclick="return confirm('Yakin ingin menghapus data ini...???')" href="?page=buku&aksi=hapus&id=<?php echo $data['id']; ?>" class="btn btn-danger" ><i class="fa fa-trash"></i>Hapus</a>
+                                            </td>
+                                        </tr>
+
+                                        <?php } ?>
                         </tbody>
                 </div>
             </div>
