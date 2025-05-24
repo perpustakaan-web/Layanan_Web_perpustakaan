@@ -42,3 +42,35 @@
     </div>
 </div>
 </div>
+
+<?php
+
+    $username =        @$_POST ['username'];
+    $password =    @$_POST ['password'];
+    $nama =     @$_POST ['nama'];
+    $level = @$_POST ['level'];
+    $foto =         @$_POST ['foto'];
+   
+    $simpan =       @$_POST ['simpan'];
+
+    if ($simpan) {
+        // Upload Foto 
+    $foto = $_FILES['foto']['name']; 
+    $target_dir = "assets/img/"; 
+    $target_file = $target_dir . basename($foto); 
+    move_uploaded_file($_FILES['foto']['tmp_name'], $target_file); 
+        $sql = $koneksi->query("insert into user (username, password,nama,level,foto)
+        values('$username','$password','$nama','$level','$foto')");
+
+        if ($sql) {
+            ?>
+                <script type="text/javascript">
+                    alert ("Data Berhasil Disimpan");
+                    window.location.href="?page=pengguna";
+
+                </script>
+                <?php
+        }
+    }
+
+?>
