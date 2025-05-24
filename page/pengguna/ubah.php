@@ -1,3 +1,11 @@
+<?php
+    $id = $_GET['id'];
+    $sql = $koneksi->query("select * from user where id = '$id'");
+    $tampil = $sql->fetch_assoc();
+ 
+    
+?>
+
 <div class="panel panel-primary">
     <div class="panel-heading">
         Ubah Pengguna
