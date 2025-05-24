@@ -8,32 +8,32 @@
                 <form method="POST">
                     <div class="form-group">
                         <label>Username</label>
-                        <input class="form-control" />
+                        <input class="form-control" name="username"/>
 
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input class="form-control" />
+                        <input class="form-control" name="password" />
 
                     </div>
                     <div class="form-group">
                         <label>nama</label>
-                        <input class="form-control" />
+                        <input class="form-control" name="nama" />
 
                     </div>
                     <div class="form-group">
                         <label>level</label>
-                        <input class="form-control" />
+                        <input class="form-control" name="level" />
 
                     </div>
                     <div class="form-group">
                         <label>foto</label>
-                        <input class="form-control" type="file" type />
+                        <input class="form-control" type="file" type name="foto" />
 
                     </div>
 
                     <div>
-                        <input type="submit" value="Simpan" class="btn btn-primary">
+                        <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">
                     </div>
 
             </div>
