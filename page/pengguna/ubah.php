@@ -1,9 +1,9 @@
 <?php
-    $id = $_GET['id'];
-    $sql = $koneksi->query("select * from user where id = '$id'");
-    $tampil = $sql->fetch_assoc();
- 
-    
+$id = $_GET['id'];
+$sql = $koneksi->query("select * from user where id = '$id'");
+$tampil = $sql->fetch_assoc();
+
+
 ?>
 
 <div class="panel panel-primary">
@@ -16,48 +16,45 @@
                 <form method="POST">
                     <div class="form-group">
                         <label>Username</label>
-                        <input class="form-control" name="" value="" />
+                        <input class="form-control" name="nim" value="<?php echo $tampil['nim'] ?>" />
 
                     </div>
                     <div class="form-group">
                         <label>Nama</label>
-                        <input class="form-control" name="" value="" />
-
+                        <input class="form-control" name="nama" value="<?php echo $tampil['nama'] ?>" />
                     </div>
                     <div class="form-group">
                         <label>Tempat Lahir</label>
-                        <input class="form-control" name="" value="" />
+                        <input class="form-control" name="tempat_lahir" value="<?php echo $tampil['tempat_lahir'] ?>" />
 
-                    </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
-                        <input class="form-control" type="date" type name="" value="" />
+                        <input class="form-control" type="date" type name="tgl_lahir"
+                            value="<?php echo $tampil['tgl_lahir'] ?>" />
 
                     </div>
                     <div class="form-group">
                         <label>Jenis Kelamin</label> <br />
                         <label class="checkbox-inline">
-                            <input type="checkbox" value="1" name="" /> Laki-Laki
+                            <input type="checkbox" value="1" name="jk" <?php echo ($jk1 == 1) ? "checked" : ""; ?> />
+                            Laki-Laki
                         </label>
                         <label class="checkbox-inline">
-                            <input type="checkbox" value="2" name="" /> Perempuan
+                            <input type="checkbox" value="2" name="jk" <?php echo ($jk1 == 2) ? "checked" : ""; ?> />
+                            Perempuan
                         </label>
 
                     </div>
                     <div class="form-group">
                         <label>Prodi</label>
-                        <input class="form-control" name="" value="" />
+                        <input class="form-control" name="prodi" value="<?php echo $tampil['prodi'] ?>" />
 
                     </div>
-
-
                     <div>
-                        <input type="submit" name="" value="" class="btn btn-primary">
+                        <input type="submit" name="simpan" value="Update" class="btn btn-primary">
                     </div>
-
+                </form>
             </div>
-            </form>
         </div>
     </div>
-</div>
 </div>
