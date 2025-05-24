@@ -20,28 +20,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>></td>
-                                <td>
-                                    <img src="" alt="Foto" width="100">
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-info">
-                                        <i class="fa fa-edit"></i> Ubah
-                                    </a>
-                                    <a onclick="" href="" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i> Hapus
-                                    </a>
-                                </td>
-                            </tr>
+                        <?php
+                            $no = 1;
+                            $sql = $koneksi->query("SELECT * FROM user");
+
+                            while ($data = $sql->fetch_assoc()) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $data['username']; ?></td>
+                                    <td><?php echo $data['password']; ?></td>
+                                    <td><?php echo $data['nama']; ?></td>
+                                    <td><?php echo $data['level']; ?></td>
+                                    <td> 
+                        <img src="assets/img/<?= $row['foto'] ?>" alt="Foto" width="100"> 
+                    </td> 
+                                    <td>
+                                        <a href="?page=pengguna&aksi=ubah&id=<?php echo $data['id']; ?>" class="btn btn-info">
+                                            <i class="fa fa-edit"></i> Ubah
+                                        </a>
+                                        <a onclick="return confirm('Yakin ingin menghapus data ini...???')" href="?page=pengguna&aksi=hapus&id=<?php echo $data['id']; ?>" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i> Hapus
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
-                <a href="" class="btn btn-primary" style="margin-top: 8px">
+                <a href="?page=pengguna&akses=tambah" class="btn btn-primary" style="margin-top: 8px">
                     <i class="fa fa-plus"></i> Tambah Data
                 </a>
 
