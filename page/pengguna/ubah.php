@@ -26,7 +26,7 @@ $tampil = $sql->fetch_assoc();
                     <div class="form-group">
                         <label>Tempat Lahir</label>
                         <input class="form-control" name="tempat_lahir" value="<?php echo $tampil['tempat_lahir'] ?>" />
-
+                    </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
                         <input class="form-control" type="date" type name="tgl_lahir"
@@ -58,3 +58,31 @@ $tampil = $sql->fetch_assoc();
         </div>
     </div>
 </div>
+
+<?php
+
+    $nim = @$_POST['nim'];
+    $nama = @$_POST['nama'];
+    $tempat_lahir = @$_POST['tempat_lahir'];
+    $tgl_lahir = @$_POST['tgl_lahir'];
+    $jk = @$_POST['jk'];
+    $prodi = @$_POST['prodi'];
+
+    $simpan = @$_POST['simpan'];
+
+    if ($simpan) {
+        $sql = $koneksi->query("update anggota set nama='$nama',tempat_lahir='$tempat_lahir',tgl_lahir='$tgl_lahir',jk='$jk',prodi='$prodi'
+            where nim='$nim'");
+
+        if ($sql) {
+            ?>
+            <script type="text/javascript">
+                alert("Data Berhasil Diupdate");
+                window.location.href = "?page=anggota";
+
+            </script>
+            <?php
+        }
+    }
+
+?>
