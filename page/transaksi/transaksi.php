@@ -23,23 +23,60 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <?php
+                            $no = 1;
+                            $sql = $koneksi->query("select * from transaksi where status='pinjam'");
 
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                            while ($data = $sql->fetch_assoc()) {
 
-                                <td class="text-nowrap">
-                                    <a href="" class="btn btn-info">Kembali</a>
-                                    <a href="" class="btn btn-danger ">Perpanjang</a>
-                                </td>
-                            </tr>
+                            ?>
+
+
+                                <tr>
+
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $data['judul']; ?></td>
+                                    <td><?php echo $data['nim']; ?></td>
+                                    <td><?php echo $data['nama']; ?></td>
+                                    <td><?php echo $data['tgl_pinjam']; ?></td>
+                                    <td><?php echo $data['tgl_kembali']; ?></td>
+                                    <td>
+
+                                        <?php
+
+                                        $denda = 1000;
+
+                                        $tgl_dateline = $data['tgl_kembali'];
+                                        $tgl_kembali = date('Y-m-d');
+
+                                        $lambat = terlambat($tgl_dateline, $tgl_kembali);
+                                        $denda1 = $lambat * $denda;
+
+                                        if ($lambat > 0) {
+                                            echo "
+                                                    
+                                                        <font color='red'>$lambat hari<br>(Rp $denda1)</font>
+                                                    ";
+                                        } else {
+                                            echo $lambat . "Hari";
+                                        }
+
+                                        ?>
+
+
+                                    </td>
+                                    <td><?php echo $data['status']; ?></td>
+
+                                    <td class="text-nowrap">
+                                        <a href="?page=transaksi&aksi=kembali&id=<?php echo $data['id']; ?>&judul=<?php echo $data['judul']; ?>" class="btn btn-info">Kembali</a>
+                                        <a href="?page=transaksi&aksi=perpanjang&id=<?php echo $data['id']; ?>&judul=<?php echo $data['judul']
+                                                                                                                        ?>&lambat=<?php echo $lambat ?> &tgl_kembali=<?php echo $data['tgl_kembali'] ?>" class="btn btn-danger ">Perpanjang</a>
+                                    </td>
+                                </tr>
+
+                            <?php } ?>
                         </tbody>
+
                 </div>
             </div>
         </div>
