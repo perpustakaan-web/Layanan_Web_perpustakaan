@@ -33,7 +33,6 @@
                     <div>
                         <input type="submit" name="simpan" value="Simpan" style="margin-top: 8px" class="btn btn-primary">
                     </div>
-
             </div>
             </form>
         </div>
