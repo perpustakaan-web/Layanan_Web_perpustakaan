@@ -1,9 +1,9 @@
 <?php
-    $nim = $_GET ['id'];
+$nisn = $_GET['id'];
 
-    $koneksi->query("delete from anggota where nim='$nim'");
+$koneksi->query("delete from anggota where nisn='$nisn'");
 ?>
 
 <script type="text/javascript">
-    window.location.href="?page=anggota";
+    window.location.href = "?page=anggota";
 </script>

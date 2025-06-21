@@ -41,8 +41,8 @@
                                     <td><?php echo $jk; ?></td>
                                     <td><?php echo $data['kelas']; ?></td>
                                     <td>
-                                        <a href="?page=anggota&aksi=ubah&id=<?php echo $data['nim']; ?>" class="btn btn-info"><i class="fa fa-edit"></i>Ubah</a>
-                                        <a onclick="return confirm('Yakin ingin menghapus data ini...???')" href="?page=anggota&aksi=hapus&id=<?php echo $data['nim']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i>Hapus</a>
+                                        <a href="?page=anggota&aksi=ubah&id=<?php echo $data['nisn']; ?>" class="btn btn-info"><i class="fa fa-edit"></i>Ubah</a>
+                                        <a onclick="return confirm('Yakin ingin menghapus data ini...???')" href="?page=anggota&aksi=hapus&id=<?php echo $data['nisn']; ?>" class="btn btn-danger"><i class="fa fa-trash"></i>Hapus</a>
                                     </td>
                                 </tr>
 
