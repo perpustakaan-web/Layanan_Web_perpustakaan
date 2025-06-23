@@ -36,7 +36,7 @@
 
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $data['judul']; ?></td>
-                                    <td><?php echo $data['nim']; ?></td>
+                                    <td><?php echo $data['nisn']; ?></td>
                                     <td><?php echo $data['nama']; ?></td>
                                     <td><?php echo $data['tgl_pinjam']; ?></td>
                                     <td><?php echo $data['tgl_kembali']; ?></td>
