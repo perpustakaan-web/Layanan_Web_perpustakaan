@@ -31,10 +31,10 @@ $kembali = date("d-m-Y", $tujuh_hari);
                         <label>Nisn || Nama Anggota</label>
                         <select class="form-control" name="nama">
                             <?php
-                            $sql = $koneksi->query("select * from anggota order by nim");
+                            $sql = $koneksi->query("select * from anggota order by nisn");
 
                             while ($data = $sql->fetch_assoc()) {
-                                echo "<option value='$data[nim].$data[nama]'>$data[nim].$data[nama]</option>";
+                                echo "<option value='$data[nisn].$data[nama]'>$data[nisn].$data[nama]</option>";
                             }
                             ?>
                         </select>
@@ -74,7 +74,7 @@ if (isset($_POST['simpan'])) {
 
     $nama = $_POST['nama'];
     $pecah_nama = explode(".", $nama);
-    $nim = $pecah_nama[0];
+    $nisn = $pecah_nama[0];
     $nama = $pecah_nama[1];
 
     $sql = $koneksi->query("select * from buku where judul = '$judul'");
@@ -89,7 +89,7 @@ if (isset($_POST['simpan'])) {
             </script>
         <?php
         } else {
-            $sql = $koneksi->query("insert into transaksi(judul,nim,nama,tgl_pinjam,tgl_kembali,status)values('$judul','$nim','$nama','$tgl_pinjam','$tgl_kembali','pinjam')");
+            $sql = $koneksi->query("insert into transaksi(judul,nisn,nama,tgl_pinjam,tgl_kembali,status)values('$judul','$nisn','$nama','$tgl_pinjam','$tgl_kembali','pinjam')");
 
             $sql2 = $koneksi->query("update buku set jumlah_buku = (jumlah_buku-1) where id='$id'");
 
